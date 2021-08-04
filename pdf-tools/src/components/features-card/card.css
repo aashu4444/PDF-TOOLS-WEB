@@ -1,0 +1,36 @@
+:root{
+    --theme-color: #F44336;
+}
+
+.features{
+    display: flex;
+    justify-content: center;
+}
+
+.mycard {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    color:var(--theme-color) !important;
+    transform: scale(0.9);
+}
+
+.mycard .mycard-text{
+    font-size:1.1rem;
+}
+
+.mycard .mycard-title{
+    border-top: 0.15rem solid;
+    border-bottom: 0.15rem solid;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.mycard-header i {
+    font-size: 5rem;
+    text-align: center;
+}
