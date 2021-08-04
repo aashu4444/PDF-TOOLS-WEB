@@ -67,7 +67,7 @@ finalStr = mystr
 
 for item in ls:
     # Replace the string
-    finalStr = finalStr.replace(mystr[item[1][0]:item[1][1]], f"""="{{{{ url_for('static', htmlFilePath='BuildStatic/{item[0]}') }}}}" """, )
+    finalStr = finalStr.replace(mystr[item[1][0]:item[1][1]], f"""="{{{{ url_for('static', filename='BuildStatic/{item[0]}') }}}}" """, )
 
 # Remove manifest from finalStr
 finalStr.replace('<link rel="manifest" href="/manifest.json"/>', "")
