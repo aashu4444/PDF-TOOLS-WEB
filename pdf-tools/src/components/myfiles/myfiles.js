@@ -4,7 +4,18 @@ import { useState } from 'react';
 import FileRow from './fileRow';
 
 export default function Myfiles(){
-    const [myfiles, setMyFiles] = useState(JSON.parse(localStorage.getItem("myFiles")));
+    let files = localStorage.getItem("myFiles");
+    let initialState;
+
+    if (files != null){
+        initialState = JSON.parse(files);
+    }
+    else{
+        initialState = [];
+    }
+    const [myfiles, setMyFiles] = useState(initialState);
+
+    console.log(myfiles);
     let index = 0;
     return (
         <>
