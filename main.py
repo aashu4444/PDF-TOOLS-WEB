@@ -1,4 +1,3 @@
-from flask import Response
 from flask import Flask, request, url_for
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
@@ -9,6 +8,7 @@ from tool import Tool
 from flaskTool import FlaskTool
 import json
 from shutil import rmtree
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -20,6 +20,10 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///pdfTools.db'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
+
+
+# Path, where all pdf files are saved/uploaded
+PdfFilesPath = "/static/PdfFiles"
 
 
 flaskTool = None
@@ -78,10 +82,9 @@ def remove_file():
                 rmtree(request.form['url'].replace(".pdf", ""))
             else:
                 os.remove(request.form["url"])
-                os.remove("static/" + str(request.form['originalFileName']))
+                os.remove(FlaskTool.PdfFilesPath + secure_filename(str(request.form['originalFileName'])))
         
         except Exception as e:
-            print(e)
             pass
 
         return "200"
@@ -133,18 +136,18 @@ def extract_images():
 
         # Encrypt the pdf and save it on the server
         folderName = flaskTool.filename.replace(".pdf", "")
-        if not os.path.isdir(f"static/{folderName}"):
-            os.mkdir(f"static/{folderName}")
+        if not os.path.isdir(f"{FlaskTool.PdfFilesPath}{folderName}"):
+            os.mkdir(f"{FlaskTool.PdfFilesPath}{folderName}")
 
         try:
-            tool.extract_images(f"static/{folderName}")
+            tool.extract_images(f"{FlaskTool.PdfFilesPath}{folderName}")
         except Exception as error:
-            tool.extract_images(saveTo=f"static/{folderName}")
+            tool.extract_images(saveTo=f"{FlaskTool.PdfFilesPath}{folderName}")
 
         
 
         # Return the url of encrypted file
-        return json.dumps(os.listdir(f"static/{folderName}"))
+        return json.dumps(os.listdir(f"{FlaskTool.PdfFilesPath}{folderName}"))
 
 
 @app.route("/setOperationPages",methods=['POST'])    
@@ -172,7 +175,6 @@ def setOperationPages():
                 return "Decrypted PDF"
             
             else:
-                print(e)
                 exit()
 
         if pages[0] == "all":

@@ -3,10 +3,12 @@ import os
 from tool import Tool
 
 class FlaskTool():
+    PdfFilesPath = "static/PdfFiles/"
+    pdffilespath = "static/PdfFiles"
     def __init__(self, request):
         self.file = request.files["pdf_file"]
         self.filename = self.file.filename
-        self.path = f"static/{secure_filename(self.filename)}"
+        self.path = f"{self.PdfFilesPath}{secure_filename(self.filename)}"
         self.resultPath = self.path.replace(".pdf", "")
 
     def saveFile(self):
