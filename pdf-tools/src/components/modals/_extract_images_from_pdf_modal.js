@@ -33,7 +33,7 @@ export default class ENCPDFMODAL extends Component {
           <h5>Total {imagesList.length} images found!</h5>
           <div style={{"display":"flex", "flexWrap":"wrap", "gap":"2rem"}}>
             {JSON.parse(result.responseText).map(i => {
-            const imageSource = Globals.url("/static/" + document.querySelector("#selectedPdfName").innerText.replace(".pdf", "") + "/" + i);
+            const imageSource = Globals.url("/static/PdfFiles/" + document.querySelector("#selectedPdfName").innerText.replace(".pdf", "") + "/" + i);
             return <a href={imageSource}><div className="extractedImagePreview" style={{"backgroundImage":`url("${imageSource}")`}}></div></a>
           })}
           </div>
