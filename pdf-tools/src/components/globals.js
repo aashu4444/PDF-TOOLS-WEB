@@ -56,7 +56,7 @@ const globals = {
             try{
                 // Try to parse the item - 
                 JSON.parse(item[1])
-                if (url.replace("static/", "") === item[0]){
+                if (url.replace("static/PdfFiles/", "") === item[0]){
                     // Index of found item
                     let index = arr.indexOf(item);
 

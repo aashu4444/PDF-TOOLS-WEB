@@ -28,7 +28,7 @@ export default function FileRow(props) {
                     <a href={Globals.url(`/${props.item[1]}`)}><Button node="button" waves="light" className="theme-bg" >Download</Button></a>
                     &nbsp;
 
-                    <Button onClick={e => { props.item[2].toLowerCase() === "extract images" ? deleteFromServer("static/" + props.item[0], null, "true") : deleteFromServer(`${props.item[1]}`, props.item[0]) }} node="button" waves="light" className="theme-bg" >Delete From Server</Button>
+                    <Button onClick={e => { props.item[2].toLowerCase() === "extract images" ? deleteFromServer("static/PdfFiles/" + props.item[0], null, "true") : deleteFromServer(`${props.item[1]}`, props.item[0]) }} node="button" waves="light" className="theme-bg" >Delete From Server</Button>
                 </td>
             </tr>
         </>
