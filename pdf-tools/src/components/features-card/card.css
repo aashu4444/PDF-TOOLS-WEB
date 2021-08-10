@@ -15,7 +15,7 @@
     align-items: center;
     font-family: Poppins;
     color:var(--theme-color) !important;
-    transform: scale(0.9);
+    height: 100%;
 }
 
 .mycard .mycard-text{

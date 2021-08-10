@@ -11,7 +11,6 @@ srcStr = "build/static/"
 dstStr = "../../Production version/static/BuildStatic/"
 
 
-
 src = os.listdir(srcStr)
 
 try:

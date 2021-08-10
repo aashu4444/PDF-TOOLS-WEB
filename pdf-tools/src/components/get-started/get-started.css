@@ -62,7 +62,7 @@
 
 #featuresLayout{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
     justify-self: center;
     margin: 0rem 4rem;
     grid-template-rows: repeat(4, auto);
