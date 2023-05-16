@@ -1,6 +1,5 @@
 from werkzeug.utils import secure_filename
 import os
-from tool import Tool
 
 class FlaskTool():
     PdfFilesPath = "static/PdfFiles/"
