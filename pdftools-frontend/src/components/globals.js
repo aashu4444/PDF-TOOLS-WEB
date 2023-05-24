@@ -3,7 +3,7 @@ import Request from './request';
 
 const globals = {
     url:function(url){
-        return "http://127.0.0.1:5000" + url
+        return `http://${process.env.HOST}` + url
     },
     addFile:function(pdfName, pdfUrl){
         // The data to be added in localStorage.
