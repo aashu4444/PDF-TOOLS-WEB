@@ -225,5 +225,9 @@ def save_operation_pages():
 def index(myurl):
     return render_template('index.html')
 
+@app.route('/')
+def index(myurl):
+    return render_template('index.html')
+
 if __name__=="__main__":
     app.run(debug=True)
