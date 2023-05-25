@@ -222,7 +222,7 @@ def save_operation_pages():
         return f"{flaskTool.resultPath}_splitted.pdf"
 
 @app.route('/<myurl>')
-def index(myurl):
+def appDynamicRoute(myurl):
     return render_template('index.html')
 
 @app.route('/')
