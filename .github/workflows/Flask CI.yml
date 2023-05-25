@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Deploy frontend
+name: Deploy backend
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
