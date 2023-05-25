@@ -1,4 +1,4 @@
-from flask import Flask, request, url_for
+from flask import Flask, request, url_for, render_template
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
@@ -220,6 +220,10 @@ def save_operation_pages():
 
          # Return the url of slitted pdf file
         return f"{flaskTool.resultPath}_splitted.pdf"
+
+@app.route('<myurl>')
+def index(myurl):
+    return render_template('index.html')
 
 if __name__=="__main__":
     app.run(debug=True)
