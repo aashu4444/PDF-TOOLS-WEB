@@ -221,7 +221,7 @@ def save_operation_pages():
          # Return the url of slitted pdf file
         return f"{flaskTool.resultPath}_splitted.pdf"
 
-@app.route('<myurl>')
+@app.route('/<myurl>')
 def index(myurl):
     return render_template('index.html')
 
