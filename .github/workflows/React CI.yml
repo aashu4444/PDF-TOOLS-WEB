@@ -31,7 +31,5 @@ jobs:
             git commit -am "${{ github.event.head_commit.message }}"
             git pull ${{secrets.REPO_URL}}
             cd pdftools-frontend/
-            npm run build
             sudo ./deploy_frontend.sh
-            sudo systemctl daemon-reload
             sudo systemctl restart gunicorn
