@@ -1,5 +1,3 @@
-
-import './App.css';
 import Home from './components/home/home';
 import GetStarted from './components/get-started/get-started';
 import Header from './components/header/header';
