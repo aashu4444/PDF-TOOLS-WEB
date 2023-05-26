@@ -30,6 +30,5 @@ jobs:
             sudo source ../env/bin/activate
             git commit -am "${{ github.event.head_commit.message }}"
             git pull ${{secrets.REPO_URL}}
-            sudo pip3 install -r requirements.txt
-            sudo systemctl daemon-reload
+            pip3 install -r requirements.txt
             sudo systemctl restart gunicorn
