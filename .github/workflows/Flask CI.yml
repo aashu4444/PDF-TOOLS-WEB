@@ -9,8 +9,8 @@ on:
     # Inputs the workflow accepts.
     branches:
       - main
-    paths:
-      - '!pdftools-frontend/**'
+    paths-ignore:
+      - 'pdftools-frontend/**'
       
 
 jobs:
