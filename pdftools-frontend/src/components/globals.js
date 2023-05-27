@@ -3,7 +3,7 @@ import Request from './request';
 
 const globals = {
     url:function(url){
-        return `http://${process.env.HOST}${url}`
+        return `http://${process.env.REACT_APP_HOST}${url}`
     },
     addFile:function(pdfName, pdfUrl){
         // The data to be added in localStorage.
