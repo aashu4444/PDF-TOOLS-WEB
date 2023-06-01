@@ -31,7 +31,8 @@ nibabel==5.1.0
 nipype==1.8.6
 numpy==1.24.3
 packaging==23.1
-pandas==2.0.1
+pandas==2.0.
+PyMuPDF==1.22.3
 pathlib==1.0.1
 Pillow==9.5.0
 prov==2.0.0
