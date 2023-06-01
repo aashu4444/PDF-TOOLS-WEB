@@ -1,5 +1,5 @@
 import PyPDF2
-# import fitz
+import fitz
 import io
 from PIL import Image
 
@@ -132,25 +132,24 @@ class Tool():
             self.obj.close()
 
     def extract_images(self, saveTo=None):
-        pass
-        # file = self.src
-        # pdf_file = fitz.open(file)
+        file = self.src
+        pdf_file = fitz.open(file)
 
 
-        # for current_page_index in self.pages:
+        for current_page_index in self.pages:
 
-        #     for image_index, img in enumerate(pdf_file.getPageImageList(current_page_index)):
-        #         xref = img[0]
-        #         image = fitz.Pixmap(pdf_file, xref)
+            for image_index, img in enumerate(pdf_file.getPageImageList(current_page_index)):
+                xref = img[0]
+                image = fitz.Pixmap(pdf_file, xref)
 
-        #         #if it is a is GRAY or RGB image
-        #         if image.n < 5:        
-        #             image.writePNG("{}/image{}-{}.png".format(saveTo,current_page_index, image_index))
+                #if it is a is GRAY or RGB image
+                if image.n < 5:        
+                    image.writePNG("{}/image{}-{}.png".format(saveTo,current_page_index, image_index))
 
-        #         #if it is CMYK: convert to RGB first
-        #         else:                
-        #             new_image = fitz.Pixmap(fitz.csRGB, image)
-        #             new_image.writePNG("{}/image{}-{}.png".foramt(saveTo,current_page_index, image_index))
+                #if it is CMYK: convert to RGB first
+                else:                
+                    new_image = fitz.Pixmap(fitz.csRGB, image)
+                    new_image.writePNG("{}/image{}-{}.png".foramt(saveTo,current_page_index, image_index))
 
     def splitPages(self, saveTo, close=True):
         if self.requested_pages[0] == "all":
